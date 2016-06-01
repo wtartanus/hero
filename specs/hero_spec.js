@@ -1,5 +1,6 @@
 var Hero = require( '../hero' );
 var Food = require( '../food' );
+var Rat = require( '../rat' );
 var assert = require( 'chai' ).assert;
 
 describe('Hero', function() {
@@ -8,6 +9,7 @@ beforeEach( function() {
   bat = new Hero("Batman", 100, "apple" );
   apple = new Food( "apple", 10 );
   banana = new Food( "banana", 10 );
+  rat = new Rat("Rat",20,5);
 });
 
   it('Should have a name', function() {
@@ -34,5 +36,11 @@ beforeEach( function() {
   it('Eating regular food should return 10 more health', function() {
     bat.eat(banana);
     assert.equal( 110, bat.health );
+  });
+
+  it('Eating poison food will negatively effect health', function() {
+     rat.poison(banana);
+     bat.eat(banana);
+     assert.equal(80, bat.health);
   });
 });

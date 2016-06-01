@@ -9,14 +9,18 @@ Hero.prototype = {
     return ("I am " + this.name );
   },
   eat: function(food) {
-    if (food.name === this.favouriteFood) {
-      this.health += ( food.healthValue * 1.5 );
+    if ( food.isPoisoned === true ) {
+      this.health -= food.healthValue;
     }
-    else {
-      this.health += food.healthValue;
+    else
+      { if (food.name === this.favouriteFood) {
+        this.health += ( food.healthValue * 1.5 );
+      }
+      else {
+        this.health += food.healthValue;
+      }
     }
   }
-
 };
 
 module.exports = Hero;

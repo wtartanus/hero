@@ -1,6 +1,7 @@
-var Food = function(name, healthValue) {
+var Food = function(name, healthValue ) {
   this.name = name;
   this.healthValue = healthValue;
+  this.isPoisoned = false;
 };
 
-module.exports = Food; 
+module.exports = Food;
